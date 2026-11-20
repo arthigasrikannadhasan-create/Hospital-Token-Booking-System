@@ -1,5 +1,5 @@
-
-class Patient extends Person {
+package model;
+public class Patient extends Person {
 
     public Patient(int id, String name, int age, String contact)
             throws HospitalException {

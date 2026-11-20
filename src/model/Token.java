@@ -1,5 +1,5 @@
-
-class Token {
+package model;
+public class Token {
 
     private int tokenNumber;
     private int doctorSequence;

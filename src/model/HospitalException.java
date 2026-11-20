@@ -1,8 +1,8 @@
+package model;
 
-class HospitalException extends Exception {
+public class HospitalException extends Exception {
 
     public HospitalException(String message) {
         super(message);
     }
-
 }

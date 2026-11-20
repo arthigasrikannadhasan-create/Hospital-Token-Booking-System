@@ -1,6 +1,7 @@
 
 import java.util.Scanner;
-
+import model.*;
+import service.*;
 public class HospitalTokenSystem {
 
     static Scanner sc = new Scanner(System.in);
@@ -38,6 +39,9 @@ public class HospitalTokenSystem {
             Patient p = new Patient(id, name, age, contact);
 
             hospital.registerPatient(p);
+            
+            FileManager.savePatient(p);
+            HospitalLogger.log("Patient registered: " + p.getName());
 
             System.out.println("Patient registered successfully!");
 
@@ -114,12 +118,15 @@ public class HospitalTokenSystem {
         }
     }
 
-
+static void viewSavedPatients() {
+    FileManager.displaySavedPatients();
+}
     // Main method
     public static void main(String[] args) {
 
         Hospital hospital = new Hospital();
-
+TokenMonitor monitor = new TokenMonitor(hospital);
+monitor.start();
         // Add sample doctors
         try {
             hospital.addDoctor(new Doctor(
@@ -155,7 +162,7 @@ public class HospitalTokenSystem {
             System.out.println("7. Search Token");
             System.out.println("8. Cancel Token");
             System.out.println("9. Exit");
-
+System.out.println("10. View Saved Patient Records");
             int choice = readInt("Enter your choice: ");
 
             switch (choice) {
@@ -196,6 +203,9 @@ public class HospitalTokenSystem {
                     System.out.println("Thank you for using the system!");
                     sc.close();
                     return;
+                    case 10:
+    viewSavedPatients();
+    break;
 
                 default:
                     System.out.println("Invalid choice. Try again.");

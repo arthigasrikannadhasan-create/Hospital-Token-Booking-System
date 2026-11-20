@@ -1,5 +1,5 @@
-
-abstract class Person {
+package model;
+public abstract class Person {
 
     // Private variables (Encapsulation)
     private int id;

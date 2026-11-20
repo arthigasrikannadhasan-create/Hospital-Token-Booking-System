@@ -1,5 +1,7 @@
+package service;
 
-class Hospital implements Bookable {
+import model.*;
+public class Hospital implements Bookable {
 
     // Maximum limits
     public static final int MAX_PATIENTS = 20;

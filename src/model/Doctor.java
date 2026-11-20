@@ -1,5 +1,5 @@
-
-class Doctor extends Person {
+package model;
+public class Doctor extends Person {
 
     private String department;
 
